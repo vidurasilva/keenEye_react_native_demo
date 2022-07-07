@@ -3,12 +3,13 @@ import { StyleSheet, ImageBackground,Alert , SafeAreaView, Button} from 'react-n
 import { StatusBar } from 'expo-status-bar';
 import color from '../config/color';
 
-function SecondaryScreen(props) {
+function SecondaryScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.container} >
-        <ImageBackground style={styles.imageContainer} source={require("../assets/lens.jpeg")}>
+        <ImageBackground resizeMode='contain' style={styles.imageContainer} source={require("../assets/lens.jpeg")}>
                <Button style={styles.textContainer} title='Click me!' onPress={()=>Alert.alert("The First Demo!", "This is first demo of React Native",[{title:"Yes", onPress:()=>{console.log('No')}}])}> </Button>
-              <StatusBar style="auto" />
+               <Button color= "#A2FFA1" title="Go to Home" onPress={() => navigation.navigate('Home')} />
+       <StatusBar style="auto" />
         </ImageBackground>
        </SafeAreaView>
     );

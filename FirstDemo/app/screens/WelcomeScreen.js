@@ -1,20 +1,21 @@
 import React from 'react';
 import { StyleSheet,Alert, Text,SafeAreaView, Button, ImageBackground} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import color from '../config/color';
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
     return (
     <SafeAreaView style={styles.container} >
-      <ImageBackground style={styles.imageContainer} source={require("../assets/bg_image.jpeg")}>
+      <ImageBackground  style={styles.imageContainer} source={require("../assets/bg_image.jpeg")}>
             <Text style={styles.textContainer}>First Demo Apps</Text>
-            <Button style={styles.textContainer}  color= "#A2FFA1" title='Click me!' onPress={()=>Alert.alert("The First Demo!", "This is first demo of React Native",[{title:"Yes", onPress:()=>{console.log('No')}}])}> </Button>
+            <Button style={styles.textContainer}  color= "#A2FFA1" title='Go to Lens Page' onPress={() => navigation.navigate('Details')}> </Button>
             <StatusBar style="auto" />
       </ImageBackground>
      </SafeAreaView>
     );
 }
-
 const styles = StyleSheet.create({
     container: {
       flex: 1,
